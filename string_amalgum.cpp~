@@ -38,6 +38,7 @@ int main()
         i++;
 
     }
+    //cout<<"**"<<arr1[1]<<"**"<<arr2[0]<<"**";
     i=0;
     //sort both arrays
     merge_sort(arr1,0,k);
