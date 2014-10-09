@@ -27,8 +27,8 @@ int main()
     {
         s1[s].arrsum=0;
         s2[s].arrsum=0;
-        s1[s].arrpro=0;
-        s2[s].arrpro=0;
+        s1[s].arrpro=1;
+        s2[s].arrpro=1;
         s1[s].arrchar=0;
         s2[s].arrchar=0;
 
@@ -67,11 +67,14 @@ int main()
     }
     i=0;
     j=0;
+
     merge_sort(s1,0,k);
     merge_sort(s2,0,l);
+
     //calculate similar sum (amalgum words) in both structure array
     while(i<=k&&j<=l)
     {
+
         if(s1[i].arrsum==s2[j].arrsum&&s1[i].arrpro==s2[j].arrpro&&s1[i].arrchar==s2[j].arrchar)
         {
 
@@ -84,6 +87,7 @@ int main()
         else
             i++;
     }
+
     cout<<"\nNumber of amalgum words are : "<<word_count_amalgum;
 return 0;
 }
@@ -93,26 +97,26 @@ template<class t1>void merge1(t1 *s, int l, int m, int r)
     int n1 = m - l + 1;
     int n2 =  r - m;
 
-    int L[n1], R[n2];
+    struct arr L[n1], R[n2];
 
     for(i = 0; i < n1; i++)
-        L[i] = s[l+i].arrsum;
+        L[i] = s[l+i];
     for(j = 0; j < n2; j++)
-        R[j] = s[m+1+j].arrsum;
+        R[j] = s[m+1+j];
 
     i = 0;
     j = 0;
     k = l;
     while (i < n1 && j < n2)
     {
-        if (L[i] <= R[j])
+        if (L[i].arrsum <= R[j].arrsum)
         {
-            s[k].arrsum = L[i];
+            s[k] = L[i];
             i++;
         }
         else
         {
-            s[k].arrsum = R[j];
+            s[k] = R[j];
             j++;
         }
         k++;
@@ -120,13 +124,13 @@ template<class t1>void merge1(t1 *s, int l, int m, int r)
 
     while (i < n1)
     {
-        s[k].arrsum = L[i];
+        s[k] = L[i];
         i++;
         k++;
     }
     while (j < n2)
     {
-        s[k].arrsum = R[j];
+        s[k]= R[j];
         j++;
         k++;
     }
@@ -141,4 +145,3 @@ template<class t1>void merge_sort(t1* s, int l, int r)
         merge1(s, l, m, r);
     }
 }
-
