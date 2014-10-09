@@ -1,10 +1,11 @@
 #include<iostream>
-#include<stdio.h>u
 #include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
 using namespace std;
 //nlogn complexity to find amalgum words in two string
-void merge1(int arr[], int l, int m, int r);
-void merge_sort(int arr[], int l, int r);
+template<class t1>void merge1(t1 *arr, int l, int m, int r);
+template<class t1>void merge_sort(t1 *arr, int l, int r);
 int main()
 {
     int a[]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26};   //value assign to each alphabets
@@ -12,7 +13,13 @@ int main()
     char string2[100];
     int arr1[20]={0};                                                                 //array to store sum of each word of string1
     int arr2[20]={0};                                                                 //array to store sum of each word of string2
-    int i=0,k=0,l=0,j=0,word_count_amalgum=0;
+    int i=0,k=0,l=0,j=0,m=0,word_count_amalgum=0;
+    long long int arr1pro[20]={1};
+    long long int arr2pro[20]={1};
+    int arr1char[20]={0};
+    int arr2char[20]={0};
+    //char str1arr[20][20];
+    //char str2arr[20][20];
     cout<<"\nEnter string1 :";
     gets(string1);
     cout<<"\nEnter string2 :";
@@ -23,9 +30,12 @@ int main()
         if(string1[i]==' ')
             k++;
         else
+        {
         arr1[k]=arr1[k]+a[string1[i]-'a'];
+        arr1pro[k]=arr1pro[k]*a[string1[i]-'a'];
+        arr1char[k]++;
+        }
         i++;
-
     }
     i=0;
     //calculate sum of each word in arr2(string2)
@@ -34,22 +44,28 @@ int main()
         if(string2[i]==' ')
             l++;
         else
-        arr2[l]=arr2[l]+a[string2[i]-'a'];
+        {
+            arr2[l]=arr2[l]+a[string2[i]-'a'];
+            arr2pro[l]=arr2pro[l]*a[string2[i]-'a'];
+            arr2char[l]++;
+        }
         i++;
-
     }
     i=0;
-    //sort both arrays
     merge_sort(arr1,0,k);
+    merge_sort(arr1pro,0,k);
+    merge_sort(arr1char,0,k);
     merge_sort(arr2,0,l);
+    merge_sort(arr2pro,0,l);
+    merge_sort(arr2char,0,l);
     //calculate similar sum (amalgum words) in both array
     while(i<=k&&j<=l)
     {
-        if(arr1[i]==arr2[j])
+        if(arr1[i]==arr2[j]&&arr1pro[i]==arr2pro[j]&&arr1char[i]==arr2char[j])
         {
-            word_count_amalgum++;
-            i++;
-            j++;
+                word_count_amalgum++;
+                i++;
+                j++;
         }
         else if(arr1[i]>arr2[j])
             j++;
@@ -59,7 +75,7 @@ int main()
     cout<<"\nNumber of amalgum words are : "<<word_count_amalgum;
 return 0;
 }
-void merge1(int arr[], int l, int m, int r)
+template<class t1>void merge1(t1 *arr, int l, int m, int r)
 {
     int i, j, k;
     int n1 = m - l + 1;
@@ -103,7 +119,7 @@ void merge1(int arr[], int l, int m, int r)
         k++;
     }
 }
-void merge_sort(int arr[], int l, int r)
+template<class t1>void merge_sort(t1* arr, int l, int r)
 {
     if (l < r)
     {
