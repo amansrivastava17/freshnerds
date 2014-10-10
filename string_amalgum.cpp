@@ -91,9 +91,9 @@ int main()
         }
     }
     if(word_count_amalgum==k+1)
-        cout<<"strings are amalgum";
+        cout<<"strings are anagrum";
     else
-        cout<<"Strings are not amalgum";
+        cout<<"Strings are not anagrum";
 return 0;
 }
 template<class t1>void merge1(t1 *s, int l, int m, int r)
