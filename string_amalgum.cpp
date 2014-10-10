@@ -19,7 +19,7 @@ int main()
 {
     struct arr s1[20];
     struct arr s2[20];
-    int s=0;
+    int s=0,min;
     int a[]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26};   //value assign to each alphabets
     char string1[100];
     char string2[100];
@@ -70,11 +70,10 @@ int main()
 
     merge_sort(s1,0,k);
     merge_sort(s2,0,l);
+    min=(k<l)?k:l;
 
     //calculate similar sum (amalgum words) in both structure array
-    if(k==l)
-    {
-        while(i<=k&&j<=l)
+    while(i<=k&&j<=l)
         {
 
             if(s1[i].arrsum==s2[j].arrsum&&s1[i].arrpro==s2[j].arrpro&&s1[i].arrchar==s2[j].arrchar)
@@ -89,8 +88,9 @@ int main()
             else
                 i++;
         }
-    }
-    if(word_count_amalgum==k+1)
+    
+    
+    if(word_count_amalgum==min
         cout<<"strings are anagrum";
     else
         cout<<"Strings are not anagrum";
