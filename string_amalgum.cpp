@@ -19,7 +19,7 @@ int main()
 {
     struct arr s1[20];
     struct arr s2[20];
-    int s=0,min;
+    int s=0,min1;
     int a[]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26};   //value assign to each alphabets
     char string1[100];
     char string2[100];
@@ -34,7 +34,7 @@ int main()
 
     }
 
-    int i=0,k=0,l=0,j=0,m=0,word_count_amalgum=0;
+    int i=0,k=0,l=0,j=0,m=0,word_count_anagram=0;
     cout<<"\nEnter string1 :";
     cin.getline(string1,100);
     cout<<"\nEnter string2 :";
@@ -70,7 +70,7 @@ int main()
 
     merge_sort(s1,0,k);
     merge_sort(s2,0,l);
-    min=(k<l)?k:l;
+    min1=(k<l)?k:l;
 
     //calculate similar sum (amalgum words) in both structure array
     while(i<=k&&j<=l)
@@ -79,7 +79,7 @@ int main()
             if(s1[i].arrsum==s2[j].arrsum&&s1[i].arrpro==s2[j].arrpro&&s1[i].arrchar==s2[j].arrchar)
             {
 
-                word_count_amalgum++;
+                word_count_anagram++;
                 i++;
                 j++;
             }
@@ -88,12 +88,11 @@ int main()
             else
                 i++;
         }
-    
-    
-    if(word_count_amalgum==min
-        cout<<"strings are anagrum";
+
+    if(word_count_anagram==min1+1)
+        cout<<"strings are anagrams";
     else
-        cout<<"Strings are not anagrum";
+        cout<<"Strings are not anagrams";
 return 0;
 }
 template<class t1>void merge1(t1 *s, int l, int m, int r)
