@@ -1,5 +1,5 @@
 #include<iostream>
-#include<string.h>
+#include<string>
 #include<stdio.h>
 #include<stdlib.h>
 using namespace std;
@@ -36,9 +36,9 @@ int main()
 
     int i=0,k=0,l=0,j=0,m=0,word_count_amalgum=0;
     cout<<"\nEnter string1 :";
-    gets(string1);
+    cin.getline(string1,100);
     cout<<"\nEnter string2 :";
-    gets(string2);
+    cin.getline(string2,100);
     //cout<<string1<<"  "<<string2;
     while(string1[i]!='\0')
     {
@@ -72,23 +72,28 @@ int main()
     merge_sort(s2,0,l);
 
     //calculate similar sum (amalgum words) in both structure array
-    while(i<=k&&j<=l)
+    if(k==l)
     {
-
-        if(s1[i].arrsum==s2[j].arrsum&&s1[i].arrpro==s2[j].arrpro&&s1[i].arrchar==s2[j].arrchar)
+        while(i<=k&&j<=l)
         {
+
+            if(s1[i].arrsum==s2[j].arrsum&&s1[i].arrpro==s2[j].arrpro&&s1[i].arrchar==s2[j].arrchar)
+            {
 
                 word_count_amalgum++;
                 i++;
                 j++;
+            }
+            else if(s1[i].arrsum>s2[j].arrsum)
+                j++;
+            else
+                i++;
         }
-        else if(s1[i].arrsum>s2[j].arrsum)
-            j++;
-        else
-            i++;
     }
-
-    cout<<"\nNumber of amalgum words are : "<<word_count_amalgum;
+    if(word_count_amalgum==k+1)
+        cout<<"strings are amalgum";
+    else
+        cout<<"Strings are not amalgum";
 return 0;
 }
 template<class t1>void merge1(t1 *s, int l, int m, int r)
