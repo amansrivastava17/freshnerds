@@ -1,5 +1,5 @@
 I have uses the concept that two different number having same no of digits there SUM 
-and PRODUCT both cannot be same...
+and PRODUCT both cannot be same(one of them can be same but not both)...
 
 In this question i have converted each word into a number and store its sum ,product and 
 no of digits in structure array.
