@@ -14,9 +14,9 @@
   </pre>  
  **Usage:**<br>
       copy the pretty_json.py file into your directory where your json file
-      is located<br>
-      *Run*: python pretty_json yourfilename.json <br>
-        json file file will be pretified succesfully
+      is located<br><br>
+      *Run*: python pretty_json yourfilename.json <br><br>
+        *json file file will be pretified succesfully*
       
       
     
