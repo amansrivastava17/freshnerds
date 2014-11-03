@@ -54,6 +54,9 @@ def check_anagram():
 
 if __name__=='__main__':
 	check_anagram()
+	c
+	d
+	a
 	a
 					
 
