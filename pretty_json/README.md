@@ -16,7 +16,8 @@
       copy the prettfy_json.py file into your directory where your json file
       is located<br><br>
       *Run*: python prettfy_json.py yourfilename.json <br><br>
-        *json file file will be pretified succesfully*
+        
+      *json file will be pretified*
       
       
     
