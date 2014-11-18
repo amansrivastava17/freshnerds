@@ -1,0 +1,9 @@
+steps:
+------
+Do following changes in setup.json file
+=======================================
+1-set the host  whose file/folder you want to access
+  ex:'172.68.92.156'
+2-set the port on which host is hosted ex:2000
+3-set the location of directory where you want to  download. 
+  ex:'c:/user/document'

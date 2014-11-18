@@ -1,0 +1,7 @@
+steps:
+------
+Do following changes in setup.json file
+=======================================
+1-set the port on which you want to host ex:2000
+3-set the location of directory which you want to share. 
+  ex:'c:/user/document'or '//home/user/Desktop'
