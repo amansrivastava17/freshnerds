@@ -1,13 +1,9 @@
- ##PyRepoShare##
- 
+###PyRepoShare###
  *pyreposhare is simple fileserver package build in python using socket programming*.<br><br>
  **Description**:<br>
-               pyreposerver can be used share files/folder between<br>
-               two computers connected over a common network<br>
-               In this there are two node one is server node which can shares its<br>
-               files/folder to the client node. client node connect to the host and<br>
-               ask for required file/folder .server node respond to the request and send the <br>
-               files/folder to the node client.<br><br>
+               pyreposerver can be used share files/folder between two computers connected over a common network<br>
+               In this there are two node one is server node which can shares its files/folder to the client node.<br>                  client node connect to the host and ask for required file/folder .server node respond to the request<br>
+               and send the files/folder to the node client.<br><br>
                
  **Usage**:<br>
                there are two folders Server and Client.In server folder there is a setup.json file<br>
