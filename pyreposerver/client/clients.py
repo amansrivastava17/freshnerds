@@ -23,7 +23,7 @@ def create_dir(dir_struct):
 
 
 def receiving(s):
-	print "1"
+	#print "1"
 	s.send("allowed")
 	data2=s.recv(1024)
 	filename=data2[12:]
