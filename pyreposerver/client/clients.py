@@ -23,13 +23,16 @@ def create_dir(dir_struct):
 
 
 def receiving(s):
+	print "1"
 	s.send("allowed")
 	data2=s.recv(1024)
 	filename=data2[12:]
 	s.send("send size")
+	
 	k=s.recv(1024)
+
 	filesize=long(k[4:])
-	print filesize
+	#yprint filesize
 	s.send("send file")
 		#f.write(data)
 	f=open(dest_folder+"/"+filename,'wb')
@@ -59,6 +62,7 @@ def receiving(s):
 
 
 def Main():
+	print "1"
 	host=HOST
 	port=PORT_NO
 
@@ -93,7 +97,10 @@ def Main():
 			if (message=='Y')| (message=='y'):
 				s.send('OK')
 				file_structure=s.recv(1024)
-				create_dir(file_structure.split('^'))
+				if file_structure=="null":
+					os.mkdir(dest_folder+filename)
+				else:
+					create_dir(file_structure.split('^'))
 				
 				#f=open('//home/aman/Desktop/new_'+filename,'wb')
 				receiving(s)

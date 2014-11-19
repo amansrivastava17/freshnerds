@@ -16,6 +16,7 @@ def dir_struct(roots):
 	for root,directory,files in os.walk(roots):
 		for dire in directory:
 			dirpath=os.path.join(root,dire)
+			print dirpath
 			dir_path_list.append(dirpath[lenth:])
 
 	return dir_path_list
@@ -48,12 +49,18 @@ def recievefile(name,socket):
 		#current_dir=os.getcwd()+"/"
 		userresponse=socket.recv(1024)
 		if userresponse[:2]=='OK':
+			#print "1"
 			filestruct=dir_struct(current_dir+filename)
+			#print "2"
 			print filestruct
 			filestruct="^".join(filestruct)
-			socket.send(filestruct)
+			if filestruct =="":
+				socket.send("null")
+			else:
+				socket.send(filestruct)
+			print "3"
 			file_list=file_list_all(current_dir+filename)
-			print file_list
+			#print file_list
 			for files in file_list:
 				permission=socket.recv(1024)
 				if permission=="allowed":

@@ -1,5 +1,4 @@
 {
   "host":"127.0.0.1",
-  "port":5000,
-  "directory_upload":"//home/aman/Desktop/"
-}
+ "port":7000,
+ "directory_upload":"//home/aman/Desktop/"}
